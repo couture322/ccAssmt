@@ -1,11 +1,10 @@
 Package: ccAssmt
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Marine SPARC MPA climate change assessments
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Jessica L. Couture [aut,cre]
+Maintainer: Jessica L. Couture <jcouture@conservation.org>
+Description: This package contains several functions to compile, clean, and plot data around an MPA. Many functions require proprietary data which limits the use of this package to the Marine SPARC team at Conservation International. 
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

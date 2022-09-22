@@ -1,4 +1,5 @@
-#' Title
+#' @title Spatial formatting
+#' @description Takes a MPA shapefile and projects it for the rest of the analyses, creates a bounding box for the analysis based on buff and creates a base map of land masses within the bounding box
 #'
 #' @param mpaShp shp file of the existing or proposed MPA
 #' @param buff distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)

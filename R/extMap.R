@@ -1,4 +1,5 @@
-#' Title
+#' @title Extent Map
+#' @description takes a MPA shapefile and creates an extent map showing the area assessed based on the established plot area
 #'
 #' @param mpaShp shp file of the existing or proposed MPA
 #' @param buff distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)
@@ -8,6 +9,8 @@
 #'
 #' @return extent map of the plot area around the mpaShp based on buff
 #' @export
+#'
+#' @import
 #'
 #' @examples
 
