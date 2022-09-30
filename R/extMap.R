@@ -2,6 +2,7 @@
 #' @description takes a MPA shapefile and creates an extent map showing the area assessed based on the established plot area
 #'
 #' @param mpaShp shp file of the existing or proposed MPA
+#' @param eezShp shp file of the relevant EEZ as produced in mpaShpBbBase function (list item 4)
 #' @param buff distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)
 #' @param zoomLat latitudinal buffer for the entire extent map in decimal degrees (size depends on context extent map scale)
 #' @param zoomLon longitudinal buffer for the entire extent map in decimal degrees (size depends on context extent map scale)
@@ -10,11 +11,10 @@
 #' @return extent map of the plot area around the mpaShp based on buff
 #' @export
 #'
-#' @import
-#'
 #' @examples
+#' extMap(mpaShp=revMPA,eezShp=mxMap[4][[1]], buff=7,zoomLat=15,zoomLon=10,corr=NA)
 
-extMapFunc<-function(mpaShp,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
+extMap<-function(mpaShp,eezShp,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
 
   mapItems<-mpaShpBbBase(mpaShp = mpaShp,
                          buff=buff,

@@ -9,15 +9,19 @@
 #'
 #' @return ggplot object of variable projections or, for oxygen, list of 2 ggplot objects of projected oxygen concentations at 2 depths
 #' @export
-#'
+#' @import tidyverse sf googledrive patchwork ncdf4
 #' @examples
+#' noaaCMIP6(mpaShp=revMPA,buff=7,var="tos",corr=NA)
+#'
 noaaCMIP6<-function(mpaShp,
                     buff,
                     var=c("tos","sos","o2"),
                     corr=c(NA,"lonFx")) {
 
   ### pull in global data from the drive based on indicated variable (var)
+  dir.create("data/tempDat")
   datFile<-"data/tempDat/noaaTmp.nc"
+
 
   driveFile<-if(var=="tos") {
     "tos_Omon_ACCESS-CM2_ssp126_r1i1p1f1_gn_201501-210012.nc"
@@ -34,7 +38,7 @@ noaaCMIP6<-function(mpaShp,
                  overwrite = TRUE)
 
   # ncDat<-nc_open(datFile)
-  rastDat<-terra::rast(datFile)
+  # rastDat<-terra::rast(datFile)
 
 
   ### pull variables from nc file: ncDat

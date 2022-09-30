@@ -2,20 +2,32 @@
 % Please edit documentation in R/mpaShpBbBase.R
 \name{mpaShpBbBase}
 \alias{mpaShpBbBase}
-\title{Title}
+\title{Spatial formatting}
 \usage{
-mpaShpBbBase(mpaShp, buff, corr = c(NA, "lonFx"))
+mpaShpBbBase(mpaShp, eezShp, buff, corr = c(NA, "lonFx"))
 }
 \arguments{
 \item{mpaShp}{shp file of the existing or proposed MPA}
+
+\item{eezShp}{shp file of relevant EEZ to be converted to crs 4326, if NA, the EEZ will be pulled from the marine regions dataset *note: if the mpa or plot area cross the 180 meridian, marine regions data cannot be used}
 
 \item{buff}{distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)}
 
 \item{corr}{indicates whether longitude "lonFx" needs to be corrected for crossing the 180 meridian, if no use NA}
 }
 \value{
-list of 3 items: mpaShp projected to WGS84 and corrected to 360 if needed: corr="lonFx", bounding box for the plot area, base map of land within the plot area
+list of 3 items: mpaShp projected to WGS84 and corrected to 360 if needed: corr="lonFx", bounding box for the plot area, base map of land within the plot area, eez projected to WGS84 and corrected to plot with the other elements
 }
 \description{
-Title
+Takes a MPA shapefile and projects it for the rest of the analyses, creates a bounding box for the analysis based on buff and creates a base map of land masses within the bounding box
+}
+\examples{
+mapsEx<-mpaShpBbBase(mpaShp=revMPA,eezShp=NA,buff=10,corr=NA)
+
+exMap<-ggplot()+geom_map(data=mapsEx[[3]],map = mapsEx[[3]],aes(map_id=region))+
+geom_sf(data=mapsEx[[1]])+
+geom_sf(data=mapsEx[[4]])
+
+exMap
+
 }
