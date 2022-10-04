@@ -4,12 +4,10 @@
 \alias{extMap}
 \title{Extent Map}
 \usage{
-extMap(mpaShp, eezShp, buff, zoomLat, zoomLon, corr = c(NA, "lonFx"))
+extMap(mpaShp, buff, zoomLat, zoomLon, corr = c(NA, "lonFx"))
 }
 \arguments{
-\item{mpaShp}{shp file of the existing or proposed MPA}
-
-\item{eezShp}{shp file of the relevant EEZ as produced in mpaShpBbBase function (list item 4)}
+\item{mpaShp}{shp file of the existing or proposed MPA, creates different layers using mpaShpBbBase function}
 
 \item{buff}{distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)}
 
@@ -26,5 +24,5 @@ extent map of the plot area around the mpaShp based on buff
 takes a MPA shapefile and creates an extent map showing the area assessed based on the established plot area
 }
 \examples{
-extMap(mpaShp=revMPA,eezShp=mxMap[4][[1]], buff=7,zoomLat=15,zoomLon=10,corr=NA)
+extMap(mpaShp=revMPA, buff=7,zoomLat=15,zoomLon=10,corr=NA)
 }
