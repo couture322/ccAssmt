@@ -10,7 +10,8 @@ Imports:
   googledrive (>= 2.0.0),
   sf (>= 1.0.0),
   patchwork (>= 1.1.1),
-  terra (>= 1.5)
+  terra (>= 1.5),
+  sfheaders
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

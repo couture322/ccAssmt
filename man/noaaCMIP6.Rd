@@ -4,14 +4,22 @@
 \alias{noaaCMIP6}
 \title{Plot NOAA CMIP6 data}
 \usage{
-noaaCMIP6(mpaShp, buff, var = c("tos", "sos", "o2"), corr = c(NA, "lonFx"))
+noaaCMIP6(
+  mpaShp,
+  buff,
+  futYr,
+  var = c("tos", "sos", "o2"),
+  corr = c(NA, "lonFx")
+)
 }
 \arguments{
 \item{mpaShp}{shp file of the existing or proposed MPA}
 
 \item{buff}{distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)}
 
-\item{var}{one of "tos" (SST), "sos" (SSSal), "o2" ([oxygen]) variables to plot.SST and SSS data are by definition only calculated at one depth (0m) and oxygen concentration is assessed at shallow and deep}
+\item{futYr}{year to capture variable projection. Data range from 2015-2100}
+
+\item{var}{one of "tos" (SST), "sos" (SSSal), "o2s" ([O2] shallow), "o2d" ([O2] deep) variables to plot.SST and SSS data are by definition only calculated at one depth (0m) and oxygen concentration is assessed at shallow and deep}
 
 \item{corr}{indicates whether longitude "lonFx" needs to be corrected for crossing the 180 meridian, if no use NA}
 }
