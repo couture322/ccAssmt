@@ -82,7 +82,7 @@ mpaShpBbBase<-function(mpaShp,eezShp,buff,corr=c(NA,"lonFx")){
       group_by(subregion)%>%
       mutate(dup=n()>3)%>%
       filter(dup==TRUE)%>%
-      ungroup()
+      dplyr::ungroup()
 
   } else {
 
@@ -94,7 +94,7 @@ mpaShpBbBase<-function(mpaShp,eezShp,buff,corr=c(NA,"lonFx")){
       group_by(subregion)%>%
       mutate(dup=n()>3)%>%
       filter(dup==TRUE)%>%
-      ungroup()
+      dplyr::ungroup()
 
   }
 
