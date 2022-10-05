@@ -2,6 +2,7 @@
 #' @description takes a MPA shapefile and creates an extent map showing the area assessed based on the established plot area
 #'
 #' @param mpaShp shp file of the existing or proposed MPA, creates different layers using mpaShpBbBase function
+#' @param eezShp shp file of relevant EEZ to be converted to crs 4326, if NA, the EEZ will be pulled from the marine regions dataset *note: if the mpa or plot area cross the 180 meridian, marine regions data cannot be used. Default is NA.
 #' @param buff distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)
 #' @param zoomLat latitudinal buffer for the entire extent map in decimal degrees (size depends on context extent map scale)
 #' @param zoomLon longitudinal buffer for the entire extent map in decimal degrees (size depends on context extent map scale)
@@ -13,9 +14,10 @@
 #' @examples
 #' extMap(mpaShp=revMPA, buff=7,zoomLat=15,zoomLon=10,corr=NA)
 
-extMap<-function(mpaShp,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
+extMap<-function(mpaShp,eezShp=NA,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
 
   mapItems<-mpaShpBbBase(mpaShp = mpaShp,
+                         eezShp = eezShp,
                          buff=buff,
                          corr=corr)
 
@@ -59,24 +61,24 @@ extMap<-function(mpaShp,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
   ### crop base layers from world map
   if(is.na(corr)){
 
-    geoShp<-map_data("world")%>%
+    geoShp<-ggplot2::map_data("world")%>%
       filter(long>totArea$xmin,
              long<totArea$xmax,
              lat>totArea$ymin,
              lat<totArea$ymax)%>%
-      group_by(subregion)%>%
+      dplyr::group_by(subregion)%>%
       mutate(dup=n()>3)%>%
       filter(dup==TRUE)%>%
       ungroup()
 
   } else {
 
-    geoShp<-map_data("world",wrap=c(0,360))%>%
+    geoShp<-ggplot2::map_data("world",wrap=c(0,360))%>%
       filter(long>totArea$xmin,
              long<totArea$xmax,
              lat>totArea$ymin,
              lat<totArea$ymax)%>%
-      group_by(subregion)%>%
+      dplyr::group_by(subregion)%>%
       mutate(dup=n()>3)%>%
       filter(dup==TRUE)%>%
       ungroup()
@@ -84,8 +86,8 @@ extMap<-function(mpaShp,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
   }
 
 
-  extMap<-ggplot()+
-    geom_map(data=geoShp,map=geoShp,aes(map_id=region))+
+  extMap<-ggplot2::ggplot()+
+    ggplot2::geom_map(data=geoShp,map=geoShp,aes(map_id=region))+
     geom_sf(data=siteEez,fill=NA,color="navy")+
     geom_sf(data=mpa,fill="deepskyblue3",alpha=0.3,color="deepskyblue4",linetype=2)+
     geom_sf(data=bbDf,fill=NA,color="darkorange3")+

@@ -4,10 +4,12 @@
 \alias{extMap}
 \title{Extent Map}
 \usage{
-extMap(mpaShp, buff, zoomLat, zoomLon, corr = c(NA, "lonFx"))
+extMap(mpaShp, eezShp = NA, buff, zoomLat, zoomLon, corr = c(NA, "lonFx"))
 }
 \arguments{
 \item{mpaShp}{shp file of the existing or proposed MPA, creates different layers using mpaShpBbBase function}
+
+\item{eezShp}{shp file of relevant EEZ to be converted to crs 4326, if NA, the EEZ will be pulled from the marine regions dataset *note: if the mpa or plot area cross the 180 meridian, marine regions data cannot be used. Default is NA.}
 
 \item{buff}{distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)}
 
