@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+
+/* Whole document */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+}
+
+h4 {
+   font-size:40px
+   margin-bottom: 2em !important;
+   color: grey;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-stretch: 60%;
+   font-weight: bold;
+   margin-top: 2em !important;
+   color: grey;
+   padding-top: 0px;
+   padding-top: 0px;
+   margin-top: 5px;
+}
+
+.title::before {
+   content: "";
+   line-height: 0px;
+   height: 100px;
+   width: 100px;
+   float: left;
+   background-image: url("ciLogo.png");
+   background-size: contain;
+   background-position: center center;
+   background-repeat: no-repeat;
+ }
+ 
+ .author {
+   font-family: 'Montserrat', sans-serif;
+   line-height: 5px;
+  font-size: 1.5em;
+  color: grey;
+  font-style: italic;
+  font-weight:  normal;
+}
+
+page  {
+  @bottom-right {
+    content: counter(page);
+    font-family: 'Montserrat', sans-serif;
+  }
+}

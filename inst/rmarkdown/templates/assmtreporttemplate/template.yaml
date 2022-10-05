@@ -1,0 +1,4 @@
+name: assmtReportTemplate
+description: >
+   Rmd pagedown template with custom Conservation International styling for climate change assessment reports.
+create_dir: FALSE

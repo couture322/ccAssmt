@@ -1,0 +1,48 @@
+---
+title: "CLIMATE CHANGE ASSESSMENT"
+author: 
+  - "Marine SPARC"
+  - "Conservation International"
+fontfamily: Montserrat
+output:
+  pagedown::html_paged:
+    toc: false
+    number_sections: false
+    css: style.css
+    self_contained: false # change to true for a self-contained document, but it'll be a litte slower for Pandoc to render
+lot: false # insert a list of tables
+lof: false # insert a list of figures
+# uncomment this line to produce HTML and PDF in RStudio:
+knit: pagedown::chrome_print
+
+---
+
+$$\\[0.25in]$$
+
+## [MPA Title]
+
+### [Country/region if not indicated in the title]
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,warning = FALSE,message = FALSE,fig.width = 7)
+
+library(tidyverse)
+library(kableExtra)
+library(here)
+
+```
+
+::: {.floatting}
+
+```{r out.width='50%', out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics("[region or extend map].png")
+```
+
+[Decription of the MPA, relevant history, unique elements, 1 paragraph] 
+
+:::
+
+***
+
+### CMIP6 Climate projections
