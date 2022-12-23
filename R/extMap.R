@@ -19,7 +19,7 @@ extMap<-function(mpaShp,eezShp=NA,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
   mapItems<-mpaShpBbBase(mpaShp = mpaShp,
                          eezShp = eezShp,
                          buff=buff,
-                         corr=corr)
+                         corr=NA)
 
   mpa=mapItems[1][[1]]
   ploArea=mapItems[2][[1]]
