@@ -1,4 +1,3 @@
-
 #' @title Plot NOAA CMIP6 data
 #' @description Pulls NOAA data from author's private drive folder and plots up variable (temperature (tos), salinity (sos), oxygen at 2 depths (o2)) projections for the assessment area indicated
 #'

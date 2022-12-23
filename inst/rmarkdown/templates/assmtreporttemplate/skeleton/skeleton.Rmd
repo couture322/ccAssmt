@@ -46,3 +46,25 @@ knitr::include_graphics("[region or extend map].png")
 ***
 
 ### CMIP6 Climate projections
+
+[SST: Intro/interpretation]
+
+![](outputs/[sstfile].png){width=95%}
+
+***
+
+[SSS: Intro/interpretation] 
+
+![](outputs/[sssfile].png){width=95%}
+
+***
+
+[shallow o2: Intro/interpretation] 
+
+![](outputs/[o2sfile].png){width=95%}
+
+***
+
+[Deep o2: Intro/interpretation] 
+
+![](outputs/[o2dfile].png){width=95%}
