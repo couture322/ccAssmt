@@ -24,7 +24,7 @@ extMap<-function(mpaShp,eezShp=NA,buff,zoomLat,zoomLon,corr=c(NA,"lonFx")){
   mpa=mapItems[1][[1]]
   ploArea=mapItems[2][[1]]
   geoShp=mapItems[3][[1]]
-  siteEez<-mapItems[4][[1]]
+  siteEez<-if(is.na(eezShp)){mapItems[4][[1]]} else {eezShp}
 
   siteBB<-st_bbox(mpa)
 
