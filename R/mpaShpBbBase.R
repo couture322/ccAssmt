@@ -18,7 +18,7 @@
 #'
 #' exMap
 #'
-mpaShpBbBase<-function(mpaShp,eezShp=NA,buff,corr=NA){
+mpaShpBbBase<-function(mpaShp,eezShp,buff,corr=NA){
 
   ### format MPA shape file
 
