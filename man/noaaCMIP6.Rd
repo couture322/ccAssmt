@@ -6,6 +6,7 @@
 \usage{
 noaaCMIP6(
   mpaShp,
+  eezShp,
   buff,
   futYr,
   var = c("tos", "sos", "o2"),
@@ -14,6 +15,8 @@ noaaCMIP6(
 }
 \arguments{
 \item{mpaShp}{shp file of the existing or proposed MPA}
+
+\item{eezShp}{shp file of relevant EEZ, if none enter NA}
 
 \item{buff}{distance around mpa shape file for which analysis is conducted (to calculate extent box, "ploArea"). In decimal degrees (numeric)}
 

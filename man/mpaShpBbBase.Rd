@@ -4,7 +4,7 @@
 \alias{mpaShpBbBase}
 \title{Spatial formatting}
 \usage{
-mpaShpBbBase(mpaShp, eezShp = NA, buff, corr = NA)
+mpaShpBbBase(mpaShp, eezShp, buff, corr = NA)
 }
 \arguments{
 \item{mpaShp}{shp file of the existing or proposed MPA}
